@@ -28,5 +28,4 @@ let useObjneed: any = computed({
 	},
 });
 
-console.log('user===>', userInfos.value);
 export { userInfos, useObjneed, useAuthBtn };

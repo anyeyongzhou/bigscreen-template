@@ -2,7 +2,6 @@ import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 import { defineConfig, loadEnv, ConfigEnv } from "vite";
 import viteCompression from "vite-plugin-compression";
-import AutoImport from "unplugin-auto-import/vite";
 
 const pathResolve = (dir: string) => {
   return resolve(__dirname, ".", dir);
@@ -18,10 +17,6 @@ const viteConfig = defineConfig((mode: ConfigEnv) => {
     plugins: [
       vue(),
       viteCompression(),
-      AutoImport({
-        imports: ["vue"],
-        dts: "src/auto-import.d.ts",
-      }),
     ],
     root: process.cwd(),
     resolve: { alias },
@@ -75,6 +70,7 @@ const viteConfig = defineConfig((mode: ConfigEnv) => {
       __NEXT_VERSION__: JSON.stringify(process.env.npm_package_version),
       __NEXT_NAME__: JSON.stringify(process.env.npm_package_name),
       "process.env": env,
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true'
     },
   };
 });

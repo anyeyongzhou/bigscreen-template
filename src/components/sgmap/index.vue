@@ -123,7 +123,6 @@ const loadPlugin = () => {
 const flyToSelectedPlace = () => {
   let address = props.mapAddress;
   vm.loadEnd = true;
-  // console.log('11',props.mapAddress,props.longitude,props.latitude,props.mapAddress && props.longitude && props.latitude);
   if (props.mapAddress && props.longitude && props.latitude) {
     //地址和坐标都存在的时候,根据坐标查询位置;只有地址没有坐标的时候根据地址查询位置
     let param = { location: [props.longitude * 1, props.latitude * 1] };
@@ -215,7 +214,6 @@ const flyToSelectedPlace = () => {
 // 给地图绑定点击事件画点
 const bindMapClickEvent = async () => {
   vm.map.on("click", e => {
-    console.log(161, e);
     vm.loadEnd = true;
     // let url = new URL('/@/assets/sgmap/pointRed.png', import.meta.url).href;
     // 逆地理编码
@@ -263,11 +261,9 @@ const drawPoint = () => {
   var movePointDom = document.createElement("div");
   movePointDom.className = "marker";
   movePointMarker = new SGMap.Marker(movePointDom);
-  console.log(movePointMarker);
 };
 // 定位
 const flyTo = opt => {
-  console.log("飞跃");
   let opts = {
     center: opt.center || this.center,
     zoom: 7,

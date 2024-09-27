@@ -16,7 +16,6 @@ const ob = new ResizeObserver((entries: any) => {
 
 const vResize = {
 	mounted: (el: HTMLElement, binding: any) => {
-		// console.log(el, binding);
 		map.set(el, binding.value);
 		ob.observe(el);
 	},

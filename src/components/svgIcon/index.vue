@@ -29,7 +29,6 @@ const props = defineProps({
 // vite 框架无法使用 require，require是webpack框架所提供的
 // vue3引入外部文件不用require
 let imgSrc = computed(() => new URL(props.name ?? "", import.meta.url).href);
-// console.log(new URL(props.name ?? '', import.meta.url));
 
 // 在线链接、本地引入地址前缀
 // https://gitee.com/lyt-top/vue-next-admin/issues/I62OVL
